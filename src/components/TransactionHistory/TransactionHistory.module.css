@@ -1,0 +1,23 @@
+.HistoryTable {
+  margin-top: 40px;
+  width: 700px;
+  border: 1px solid black;
+  background-color: white;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.HistoryTableHeader {
+  background-color: darkslategray;
+  color: white;
+}
+
+.HistoryTableHeader th {
+  border: 1px solid black;
+}
+
+.HistoryTableColumn td {
+  border: 1px solid black;
+  padding: 5px 20px;
+  text-align: center;
+}
