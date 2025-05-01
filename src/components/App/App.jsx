@@ -1,26 +1,21 @@
 import './App.module.css';
 
-import Profile from '../Profile/Profile';
-import userData from '../../mockedData/task1.json';
+import ContactForm from '../ContactForm/ContactForm';
+import SearchBox from '../SearchBox/SearchBox';
+import ContactList from '../ContactList/ContactList';
 
-import FriendList from '../FriendList/FriendList';
-import friendsListData from '../../mockedData/task2.json';
-
-import TransactionHistory from '../TransactionHistory/TransactionHistory';
-import TransactionHostoryData from '../../mockedData/task3.json';
+import mockedData from '../../mockedData/contacts.json';
 
 function App() {
+  console.log(mockedData);
   return (
     <>
-      <Profile
-        name={userData.username}
-        tag={userData.tag}
-        location={userData.location}
-        image={userData.avatar}
-        stats={userData.stats}
-      />
-      <FriendList friends={friendsListData} />
-      <TransactionHistory items={TransactionHostoryData} />
+      <div>
+        <h1>Phonebook</h1>
+        <ContactForm />
+        <SearchBox />
+        <ContactList />
+      </div>
     </>
   );
 }

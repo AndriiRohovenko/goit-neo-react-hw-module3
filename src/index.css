@@ -72,7 +72,6 @@ ul {
 
 :root {
   font-family: Arial, sans-serif;
-  background-color: grey;
   display: flex;
   flex-direction: column;
   gap: 20px;
