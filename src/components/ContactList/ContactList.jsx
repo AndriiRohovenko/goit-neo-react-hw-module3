@@ -2,8 +2,6 @@ import './ContactList.module.css';
 import Contact from '../Contact/Contact';
 
 function ContactList({ data }) {
-  console.log('hello from ContactList');
-  console.log(data);
   return (
     <>
       <ul>

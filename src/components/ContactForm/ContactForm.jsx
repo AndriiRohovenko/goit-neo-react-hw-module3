@@ -3,7 +3,6 @@ import { useId } from 'react';
 import './ContactForm.module.css';
 
 function ContactForm() {
-  console.log('hello from ContactForm');
   const defaultObj = { name: '', phone: '' };
   const nameFieldId = useId();
   const phoneFieldId = useId();
