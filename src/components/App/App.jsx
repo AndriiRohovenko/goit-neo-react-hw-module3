@@ -10,14 +10,22 @@ import { useState } from 'react';
 function App() {
   const [contacts, setContacts] = useState(mockedData);
   const [searchValue, setSearchValue] = useState('');
-  console.log(searchValue);
+
+  const foundContacts = () => {
+    const allContacts = [...contacts];
+    const mathchedData = allContacts.filter(item =>
+      item.name.toLowerCase().includes(searchValue)
+    );
+    return mathchedData;
+  };
+
   return (
     <>
       <div>
         <h1>Phonebook</h1>
         <ContactForm />
         <SearchBox onSearchChange={setSearchValue} />
-        <ContactList data={contacts} />
+        <ContactList data={foundContacts()} />
       </div>
     </>
   );
