@@ -1,14 +1,19 @@
 import { Form, Formik, Field } from 'formik';
 import { useId } from 'react';
+import { nanoid } from 'nanoid';
 import './ContactForm.module.css';
 
-function ContactForm() {
-  const defaultObj = { name: '', phone: '' };
+function ContactForm({ onFormSubmit }) {
+  const defaultObj = { name: '', number: '' };
   const nameFieldId = useId();
   const phoneFieldId = useId();
 
-  const addContact = contact => {
-    console.log(contact);
+  const addContact = (contact, { resetForm }) => {
+    const id = nanoid();
+    const contactObj = { id, ...contact };
+
+    onFormSubmit(prevContacts => [...prevContacts, contactObj]);
+    resetForm();
   };
 
   return (
@@ -18,7 +23,7 @@ function ContactForm() {
           <label htmlFor={nameFieldId}>Name</label>
           <Field name="name" />
           <label htmlFor={phoneFieldId}>Number</label>
-          <Field name="phone" />
+          <Field name="number" />
           <button type="submit">Add Contact</button>
         </Form>
       </Formik>

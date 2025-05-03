@@ -19,11 +19,13 @@ function App() {
     return mathchedData;
   };
 
+  console.log(contacts);
+
   return (
     <>
       <div>
         <h1>Phonebook</h1>
-        <ContactForm />
+        <ContactForm onFormSubmit={setContacts} />
         <SearchBox onSearchChange={setSearchValue} />
         <ContactList data={foundContacts()} />
       </div>
