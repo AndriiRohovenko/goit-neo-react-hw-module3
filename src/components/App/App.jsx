@@ -1,4 +1,4 @@
-import './App.module.css';
+import styles from './App.module.css';
 
 import ContactForm from '../ContactForm/ContactForm';
 import SearchBox from '../SearchBox/SearchBox';
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className={styles.appContent}>
         <h1>Phonebook</h1>
         <ContactForm onFormSubmit={setContacts} />
         <SearchBox onSearchChange={setSearchValue} />

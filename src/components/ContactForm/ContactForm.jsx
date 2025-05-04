@@ -11,12 +11,13 @@ function ContactForm({ onFormSubmit }) {
 
   const validationSchema = Yup.object({
     name: Yup.string()
+
       .min(3, 'Min 3 symbols')
       .max(50, 'Max 50 symbols')
       .required('The field is required'),
 
-    number: Yup.number()
-      .typeError('Please enter a valid number')
+    number: Yup.string()
+
       .min(3, 'Min 3 numbers')
       .max(50, 'Max 50 numbers')
       .required('The field is required'),
@@ -38,17 +39,27 @@ function ContactForm({ onFormSubmit }) {
         validationSchema={validationSchema}
       >
         <Form className={styles.formWrapper}>
-          <label htmlFor={nameFieldId}>Name</label>
-          <Field name="name" />
-          <ErrorMessage className={styles.error} name="name" component="span" />
-          <label htmlFor={phoneFieldId}>Number</label>
-          <Field name="number" />
-          <ErrorMessage
-            className={styles.error}
-            name="number"
-            component="span"
-          />
-          <button type="submit">Add Contact</button>
+          <div className={styles.fieldWrapper}>
+            <label htmlFor={nameFieldId}>Name</label>
+            <Field name="name" />
+            <ErrorMessage
+              className={styles.error}
+              name="name"
+              component="span"
+            />
+          </div>
+          <div className={styles.fieldWrapper}>
+            <label htmlFor={phoneFieldId}>Number</label>
+            <Field name="number" />
+            <ErrorMessage
+              className={styles.error}
+              name="number"
+              component="span"
+            />
+          </div>
+          <button className={styles.addContactBtn} type="submit">
+            Add Contact
+          </button>
         </Form>
       </Formik>
     </>

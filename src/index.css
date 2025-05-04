@@ -67,15 +67,12 @@ h6 {
 }
 
 ul {
+  padding: 0;
   list-style: none;
 }
 
 :root {
   font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
   padding: 20px;
-  height: 100vh;
   margin: 0;
 }
