@@ -27,7 +27,7 @@ function App() {
         <h1>Phonebook</h1>
         <ContactForm onFormSubmit={setContacts} />
         <SearchBox onSearchChange={setSearchValue} />
-        <ContactList data={foundContacts()} />
+        <ContactList data={foundContacts()} onDelete={setContacts} />
       </div>
     </>
   );

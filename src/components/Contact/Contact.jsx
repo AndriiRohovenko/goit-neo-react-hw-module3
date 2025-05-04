@@ -2,7 +2,7 @@ import styles from './Contact.module.css';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { IoPerson } from 'react-icons/io5';
 
-function Contact({ name, number }) {
+function Contact({ name, number, onDelete }) {
   return (
     <>
       <div className={styles.contactContainer}>
@@ -16,7 +16,9 @@ function Contact({ name, number }) {
             <p>{number}</p>
           </div>
         </div>
-        <button className={styles.deleteBtn}>Delete</button>
+        <button className={styles.deleteBtn} onClick={onDelete}>
+          Delete
+        </button>
       </div>
     </>
   );
