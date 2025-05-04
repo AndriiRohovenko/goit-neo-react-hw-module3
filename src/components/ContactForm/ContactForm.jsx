@@ -1,6 +1,6 @@
 import { Form, Formik, Field, ErrorMessage } from 'formik';
 import { useId } from 'react';
-import { nanoid } from 'nanoid';
+
 import styles from './ContactForm.module.css';
 import * as Yup from 'yup';
 
@@ -23,19 +23,11 @@ function ContactForm({ onFormSubmit }) {
       .required('The field is required'),
   });
 
-  const addContact = (contact, { resetForm }) => {
-    const id = nanoid();
-    const contactObj = { id, ...contact };
-
-    onFormSubmit(prevContacts => [...prevContacts, contactObj]);
-    resetForm();
-  };
-
   return (
     <>
       <Formik
         initialValues={defaultObj}
-        onSubmit={addContact}
+        onSubmit={onFormSubmit}
         validationSchema={validationSchema}
       >
         <Form className={styles.formWrapper}>

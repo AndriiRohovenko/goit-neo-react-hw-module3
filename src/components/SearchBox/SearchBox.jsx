@@ -4,9 +4,6 @@ import styles from './SearchBox.module.css';
 function SearchBox({ onSearchChange }) {
   const searchFieldID = useId();
 
-  const handleSearch = ev => {
-    onSearchChange(ev.target.value.toLowerCase());
-  };
   return (
     <>
       <div className={styles.searchBoxWrapper}>
@@ -15,7 +12,7 @@ function SearchBox({ onSearchChange }) {
           type="text"
           name="searchInput"
           id={searchFieldID}
-          onChange={handleSearch}
+          onChange={onSearchChange}
         />
       </div>
     </>

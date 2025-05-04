@@ -2,10 +2,6 @@ import styles from './ContactList.module.css';
 import Contact from '../Contact/Contact';
 
 function ContactList({ data, onDelete }) {
-  const handleDeleteAction = id => {
-    onDelete(prevContacts => prevContacts.filter(contact => contact.id !== id));
-  };
-
   return (
     <>
       <ul className={styles.contactListWrapper}>
@@ -14,7 +10,7 @@ function ContactList({ data, onDelete }) {
             <Contact
               name={contact.name}
               number={contact.number}
-              onDelete={() => handleDeleteAction(contact.id)}
+              onDelete={() => onDelete(contact.id)}
             />
           </li>
         ))}
