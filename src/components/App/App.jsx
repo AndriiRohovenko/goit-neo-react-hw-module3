@@ -5,21 +5,28 @@ import SearchBox from '../SearchBox/SearchBox';
 import ContactList from '../ContactList/ContactList';
 
 import mockedData from '../../mockedData/contacts.json';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
-  const [contacts, setContacts] = useState(mockedData);
+  const [contacts, setContacts] = useState(() => {
+    const savedContacts = localStorage.getItem('contacts');
+    return savedContacts ? JSON.parse(savedContacts) : mockedData;
+  });
   const [searchValue, setSearchValue] = useState('');
 
+  useEffect(() => {
+    try {
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    } catch (error) {
+      console.error('Error saving contacts to localStorage:', error);
+    }
+  }, [contacts]);
+
   const foundContacts = () => {
-    const allContacts = [...contacts];
-    const mathchedData = allContacts.filter(item =>
+    return contacts.filter(item =>
       item.name.toLowerCase().includes(searchValue)
     );
-    return mathchedData;
   };
-
-  console.log(contacts);
 
   return (
     <>
